@@ -1,0 +1,5 @@
+<코인 채굴 시작 스크립트>
+
+PhoenixMiner.exe -pool eu1.ethermine.org:4444 -pool2 us1.ethermine.org:4444 -wal 0x93E2C4A13B22633861301322B5A04E1d82f55687.minerGeun1 -proto 3
+
+PhoenixMiner.exe -pool etchash.unmineable.com:3333 -wal ETH:0x93E2C4A13B22633861301322B5A04E1d82f55687.minerGeun1#cpgu-t9qu -pass x -coin etc

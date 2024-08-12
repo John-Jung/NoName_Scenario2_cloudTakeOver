@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Metadata Explorer</h1>
+    
+    <section>
+        <h2>Metadata Explorer</h2>
+        <form action="/explore" method="get">
+            <label for="path">Current Path: {{ current_path }}</label>
+            <label for="path">Enter Metadata Path:</label>
+            <input type="text" id="path" name="path" placeholder="security-credentials/">
+            <input type="hidden" name="current_path" value="{{ current_path }}">
+            <button type="submit">Explore</button>
+        </form>
+        <a href="{{ url_for('explore', path=parent_path) }}">Go to Parent Directory</a>
+    </section>
+
+    <section>
+        <h2>Result</h2>
+        <div class="result">
+            {{ result | safe }}
+        </div>
+    </section>
+    
+    <section>
+        <h2>Create IAM User</h2>
+        <form action="/create_user" method="post">
+            <label for="username">IAM Username:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Create User</button>
+            <label for="access_key">Access Key:</label>
+            <input type="text" id="access_key" name="access_key" value="{{ access_key }}" required>
+            <label for="secret_key">Secret Key:</label>
+            <input type="text" id="secret_key" name="secret_key" value="{{ secret_key }}" required>
+            <label for="session_token">Session Token:</label>
+            <input type="text" id="session_token" name="session_token" value="{{ session_token }}" required>
+        </form>
+    </section>
+
+    <section>
+        <h2>IAM Result</h2>
+        <div class="result">
+            {{ iam_result | safe }}
+        </div>
+        {% if login_url %}
+        <div>
+            <a href="{{ login_url }}" target="_blank">Login URL</a>
+        </div>
+        {% endif %}
+    </section>
+</body>
+</html>
