@@ -117,4 +117,6 @@ sudo rm -rf /var/log
 
 
 
-  
+  ## 참고 자료
+
+  https://velog.io/@silver35/Cloud-Accessing-AWS-EC2-metadata-and-stealing-sensitive-information-using-SSRF
